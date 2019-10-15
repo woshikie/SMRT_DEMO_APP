@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <script src="https://unpkg.com/jquery"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        .mrt_door {
+            /* float: left; */
+            display: inline-block;
+
+            border: solid blue;
+        }
+
+        .mrt_door img {
+            max-height: 35vh;
+        }
+
+        .door_container {
+            width: 100%;
+            white-space: nowrap;
+            overflow: auto;
+        }
+
+        .door_container h5 {
+            color: white;
+            margin-top: -2.4rem;
+        }
+
+        .door_container:last-of-type {
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top half -->
+    <div class="row door_container">
+
+    </div>
+    <!-- Bottom Half -->
+    <div class="row door_container"></div>
+
+    <script>
+        $('.door_container').each((index, elem) => {
+            for (var i = 0; i < 24; i++) { //24 doors
+                var door_img = `
+                <div class="mrt_door">
+                    <img  src="doors.svg" />
+                    <h5>Door ${index+1}_${i+1}</h5>
+                </div>`;
+                $(elem).append(door_img);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://unpkg.com/jquery"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        .parts {
+            height: 2rem;
+            width: 4rem;
+            /* border: solid red; */
+            position: absolute;
+        }
+
+        #part1 {
+            left: 4rem;
+            top: 18rem;
+        }
+
+        #part2{
+            left: 30rem;
+            top: 18rem;
+        }
+        #part3{
+            left: 4rem;
+            top: 30rem;
+        }
+        #part4{
+            top: 30rem;
+            left: 30rem;
+        }
+        .selected {
+            border: solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col s6">
+            <img class="responsive-img" src="doors.svg">
+
+            <div class="parts" id="part1"></div>
+            <div class="parts" id="part2"></div>
+            <div class="parts" id="part3"></div>
+            <div class="parts" id="part4"></div>
+        </div>
+        <div class="col s6">
+            <ul class="collection">
+                <li class="collection-item part_selector" for="part1">Part1</li>
+                <li class="collection-item part_selector" for="part2">Part2</li>
+                <li class="collection-item part_selector" for="part3">Part3</li>
+                <li class="collection-item part_selector" for="part4">Part4</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function Handler(event) {
+            var target = $(event.currentTarget).attr('for');
+            $('.parts').removeClass('selected');
+            $('#'+target).addClass('selected');
+        }
+        $('.part_selector').hover(Handler).click(Handler);
+    </script>
+</body>
+
+</html>
